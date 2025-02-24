@@ -34,12 +34,14 @@ templ Card(props CardProps) {
 }
 
 type CardImageProps struct {
-	Src         string            // Image URL
-	Alt         string            // Image alt text
-	Class       string            // Additional CSS classes
-	AspectRatio string            // Aspect ratio for image
-	Position    CardImagePosition // Image position
-	Width       string            // Image width
+	Src           string            // Image URL
+	Alt           string            // Image alt text
+	Class         string            // Additional CSS classes
+	AspectRatio   string            // Aspect ratio for image
+	Position      CardImagePosition // Image position
+	Width         string            // Image width
+	ImgClass      string            // Image tag class
+	ImgAttributes templ.Attributes  // Image tag attributes
 }
 
 func imageWidth(width string) string {
@@ -73,7 +75,8 @@ templ CardImage(props CardImageProps) {
 		<img
 			src={ props.Src }
 			alt={ props.Alt }
-			class="h-full w-full object-cover"
+			class={ utils.TwMerge("h-full w-full object-cover", props.ImgClass) }
+			{ props.ImgAttributes... }
 		/>
 	</div>
 }
