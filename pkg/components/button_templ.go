@@ -24,6 +24,7 @@ const (
 	ButtonVariantSecondary   ButtonVariant = "secondary"
 	ButtonVariantGhost       ButtonVariant = "ghost"
 	ButtonVariantLink        ButtonVariant = "link"
+	ButtonVariantTransparent ButtonVariant = "transparent"
 
 	ButtonSizeMd   ButtonSize = "md"
 	ButtonSizeSm   ButtonSize = "sm"
@@ -58,6 +59,8 @@ func (b ButtonProps) variantClasses() string {
 		return "hover:bg-accent hover:text-accent-foreground"
 	case ButtonVariantLink:
 		return "text-primary underline-offset-4 hover:underline"
+	case ButtonVariantTransparent:
+		return "bg-transparent"
 	default:
 		return "bg-primary text-primary-foreground hover:bg-primary/90"
 	}
@@ -137,7 +140,7 @@ func Button(props ButtonProps) templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(props.Target)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 84, Col: 24}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 87, Col: 24}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -227,7 +230,7 @@ func Button(props ButtonProps) templ.Component {
 				var templ_7745c5c3_Var8 string
 				templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(props.Type)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 117, Col: 21}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 120, Col: 21}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 				if templ_7745c5c3_Err != nil {
@@ -303,7 +306,7 @@ func renderButtonContent(props ButtonProps) templ.Component {
 		var templ_7745c5c3_Var10 string
 		templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(props.Text)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 133, Col: 14}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `pkg/components/button.templ`, Line: 136, Col: 14}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 		if templ_7745c5c3_Err != nil {

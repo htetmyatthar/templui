@@ -16,6 +16,7 @@ const (
 	ButtonVariantSecondary   ButtonVariant = "secondary"
 	ButtonVariantGhost       ButtonVariant = "ghost"
 	ButtonVariantLink        ButtonVariant = "link"
+	ButtonVariantTransparent ButtonVariant = "transparent"
 
 	ButtonSizeMd   ButtonSize = "md"
 	ButtonSizeSm   ButtonSize = "sm"
@@ -50,6 +51,8 @@ func (b ButtonProps) variantClasses() string {
 		return "hover:bg-accent hover:text-accent-foreground"
 	case ButtonVariantLink:
 		return "text-primary underline-offset-4 hover:underline"
+	case ButtonVariantTransparent:
+		return "bg-transparent"
 	default:
 		return "bg-primary text-primary-foreground hover:bg-primary/90"
 	}
@@ -136,4 +139,3 @@ templ renderButtonContent(props ButtonProps) {
 		}
 	</span>
 }
-
