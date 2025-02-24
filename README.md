@@ -24,7 +24,7 @@ templUI is an enterprise-ready library of UI components designed specifically fo
 
 Visit our [documentation](https://templui.io/docs/how-to-use) for detailed installation and usage instructions.
 
-For a ready-to-go setup, check out our [Quickstart Template](https://github.com/axzilla/templui-quickstart).
+For a ready-to-go setup, check out our [Quickstart Template](https://github.com/htetmyatthar/templui-quickstart).
 
 ## Components
 
@@ -57,7 +57,7 @@ templUI is open-source software licensed under the [MIT license](LICENSE).
 
 ## Support
 
-For support, questions, or discussions, please [open an issue](https://github.com/axzilla/templui/issues) on our GitHub repository or [visit our community (GitHub Discussions)](https://github.com/axzilla/templui/discussions).
+For support, questions, or discussions, please [open an issue](https://github.com/htetmyatthar/templui/issues) on our GitHub repository or [visit our community (GitHub Discussions)](https://github.com/htetmyatthar/templui/discussions).
 
 ---
 

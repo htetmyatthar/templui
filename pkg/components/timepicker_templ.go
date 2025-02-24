@@ -10,8 +10,8 @@ import templruntime "github.com/a-h/templ/runtime"
 
 import (
 	"fmt"
-	"github.com/axzilla/templui/pkg/icons"
-	"github.com/axzilla/templui/pkg/utils"
+	"github.com/htetmyatthar/templui/pkg/icons"
+	"github.com/htetmyatthar/templui/pkg/utils"
 	"time"
 )
 

@@ -5,6 +5,7 @@ import (
 	"context"
 	"embed"
 	"fmt"
+	"html"
 	"io"
 	"strings"
 	"sync"
@@ -25,11 +26,43 @@ var iconFS embed.FS
 
 // IconProps defines the properties that can be set for an icon.
 type IconProps struct {
-	Size   string
-	Color  string
-	Fill   string
-	Stroke string
-	Class  string
+	Size       string
+	Color      string
+	Fill       string
+	Stroke     string
+	Class      string
+	Attributes templ.Attributes
+}
+
+// attributesToString converts a map of attributes to a string
+func attributesToString(attrs map[string]any) string {
+	if len(attrs) == 0 {
+		return ""
+	}
+
+	var sb strings.Builder
+	for key, value := range attrs {
+		if value == nil {
+			continue
+		}
+
+		// Handle boolean attributes
+		if b, ok := value.(bool); ok {
+			if b {
+				sb.WriteString(" ")
+				sb.WriteString(key)
+			}
+			continue
+		}
+
+		// Handle regular attributes
+		sb.WriteString(" ")
+		sb.WriteString(key)
+		sb.WriteString("=\"")
+		sb.WriteString(html.EscapeString(fmt.Sprint(value)))
+		sb.WriteString("\"")
+	}
+	return sb.String()
 }
 
 // Icon returns a function that generates a templ.Component for the specified icon.
@@ -40,6 +73,17 @@ func Icon(name string) func(IconProps) templ.Component {
 			if err != nil {
 				return err
 			}
+
+			// Convert templ.Attributes to map[string]any and render
+			if props.Attributes != nil {
+				attrs := attributesToString(map[string]any(props.Attributes))
+				// Insert attributes before the closing ">" of the opening svg tag
+				index := strings.Index(svg, ">")
+				if index != -1 {
+					svg = svg[:index] + attrs + svg[index:]
+				}
+			}
+
 			_, err = w.Write([]byte(svg))
 			return
 		})

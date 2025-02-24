@@ -6,12 +6,12 @@ import (
 	"strconv"
 
 	"github.com/a-h/templ"
-	"github.com/axzilla/templui/assets"
-	"github.com/axzilla/templui/internal/config"
-	"github.com/axzilla/templui/internal/middleware"
-	"github.com/axzilla/templui/internal/ui/pages"
-	"github.com/axzilla/templui/pkg/components"
-	mw "github.com/axzilla/templui/pkg/middleware"
+	"github.com/htetmyatthar/templui/assets"
+	"github.com/htetmyatthar/templui/internal/config"
+	"github.com/htetmyatthar/templui/internal/middleware"
+	"github.com/htetmyatthar/templui/internal/ui/pages"
+	"github.com/htetmyatthar/templui/pkg/components"
+	mw "github.com/htetmyatthar/templui/pkg/middleware"
 )
 
 func toastDemoHandler(w http.ResponseWriter, r *http.Request) {
